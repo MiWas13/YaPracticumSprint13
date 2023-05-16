@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import ru.yandex.practicum.sprint13koh03.databinding.VCartItemBinding
 
+//test
+
 data class CartItem(
     val id: String,
     val catalogItem: CatalogItem,
