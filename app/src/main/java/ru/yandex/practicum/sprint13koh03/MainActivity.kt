@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         catalogItemsAdapter.setItems(catalogItems)
-        holderVisibility (cartItems.isNotEmpty())
+        holderVisibility(cartItems.isNotEmpty())
         with(catalogItemsAdapter) {
             onAddToCartClickListener = OnAddToCartClickListener { item ->
                 catalogItems = catalogItems.map {
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                                 )
                             )
                         }
-                        holderVisibility (cartItems.isNotEmpty())
+                        holderVisibility(cartItems.isNotEmpty())
                         cartItemsAdapter.setItems(cartItems)
 
                         it.copy(count = 1)
@@ -172,10 +172,12 @@ class MainActivity : AppCompatActivity() {
                 changeCurrentScreenMode(ScreenMode.CATALOG)
                 true
             }
+
             R.id.cart -> {
                 changeCurrentScreenMode(ScreenMode.CART)
                 true
             }
+
             else -> false
         }
     }
@@ -186,15 +188,19 @@ class MainActivity : AppCompatActivity() {
                 ScreenMode.CATALOG -> {
                     binding.catalogContainer.visibility = View.VISIBLE
                     binding.cartContainer.visibility = View.GONE
+                    binding.toolbar.setTitle(R.string.catalog_title)
                 }
+
                 ScreenMode.CART -> {
                     binding.catalogContainer.visibility = View.GONE
                     binding.cartContainer.visibility = View.VISIBLE
+                    binding.toolbar.setTitle(R.string.cart_title)
                 }
             }
             currentScreenMode = newScreenMode
         }
     }
+
     private fun holderVisibility(isNeedToHide: Boolean) {
         if (isNeedToHide) {
             binding.cartEmptyTitle.visibility = View.GONE
