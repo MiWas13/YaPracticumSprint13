@@ -35,7 +35,7 @@ class CartItemViewHolder(
             .load(item.catalogItem.imageUrl)
             .into(binding.image)
         binding.title.text = item.catalogItem.name
-
+        binding.price.text = item.sum.toString()+" р."
         binding.count.text = item.count.toString()
     }
 
