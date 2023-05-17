@@ -13,6 +13,8 @@ import retrofit2.Response
 import ru.yandex.practicum.sprint13koh03.databinding.ActivityMainBinding
 import java.util.UUID
 
+//This just test push in new branch test_Mike
+
 class MainActivity : AppCompatActivity() {
 
     companion object {
