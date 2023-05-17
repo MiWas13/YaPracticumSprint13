@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         catalogItemsAdapter.setItems(catalogItems)
+        holderVisibility (cartItems.isNotEmpty())
         with(catalogItemsAdapter) {
             onAddToCartClickListener = OnAddToCartClickListener { item ->
                 catalogItems = catalogItems.map {
@@ -100,7 +101,9 @@ class MainActivity : AppCompatActivity() {
                                 )
                             )
                         }
+                        holderVisibility (cartItems.isNotEmpty())
                         cartItemsAdapter.setItems(cartItems)
+
                         it.copy(count = 1)
                     } else {
                         it
@@ -190,6 +193,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             currentScreenMode = newScreenMode
+        }
+    }
+    private fun holderVisibility(isNeedToHide: Boolean) {
+        if (isNeedToHide) {
+            binding.cartEmptyTitle.visibility = View.GONE
+        } else {
+            binding.cartEmptyTitle.visibility = View.VISIBLE
         }
     }
 }
